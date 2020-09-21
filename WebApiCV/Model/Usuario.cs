@@ -15,7 +15,7 @@ namespace WebApiCV.Model
         [Column("Id")]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo Obrigatorio")]
         [Column("Nome")]
         [MaxLength(120, ErrorMessage = "O campo nome deve conter até 120 caracteres.")]
         public string Nome { get; set; }

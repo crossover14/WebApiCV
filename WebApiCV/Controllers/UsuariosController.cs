@@ -43,8 +43,6 @@ namespace WebApiCV.Controllers
         }
 
         // PUT: api/Usuarios/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
@@ -75,8 +73,6 @@ namespace WebApiCV.Controllers
         }
 
         // POST: api/Usuarios
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
@@ -86,7 +82,7 @@ namespace WebApiCV.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-        // DELETE: api/Usuarios/5
+        // Deletar: api/Usuarios/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> DeleteUsuario(int id)
         {

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiCV.Validations;
 
 namespace WebApiCV.Model
 {
@@ -38,12 +39,9 @@ namespace WebApiCV.Model
         [Compare("Senha", ErrorMessage = "Senha e confirmação não são as mesmas.")]
         public string ComFirmaSenha { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatorio")]
-        [Display(Name = "CPF")]
-        [MinLength(11, ErrorMessage = "CPF Invalido.")]
-        [MaxLength(11, ErrorMessage = "CPF Invalido.")]
-        [Column("Cpf")]
-        public string Cpf { get; set; }
+        [Required(ErrorMessage = "CPF obrigatório")]
+        [CustomValidationCPF(ErrorMessage = "CPF Invalido")]
+        public string CPF { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatorio")]
         [Display(Name = "Data De Nascimeto")]

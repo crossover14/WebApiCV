@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApiCV.Validations
 {
-    public class Util
+    public class ValidacaoCpf
     {
         public static string RemoveNaoNumericos(string text)
         {
@@ -18,7 +18,7 @@ namespace WebApiCV.Validations
         public static bool ValidaCPF(string cpf)
         {
             
-            cpf = Util.RemoveNaoNumericos(cpf);
+            cpf = ValidacaoCpf.RemoveNaoNumericos(cpf);
 
             if (cpf.Length > 11)
                 return false;

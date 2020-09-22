@@ -17,7 +17,7 @@ namespace WebApiCV.Validations
             if (value == null || string.IsNullOrEmpty(value.ToString()))
                 return true;
 
-            bool valido = Util.ValidaCPF(value.ToString());
+            bool valido = ValidacaoCpf.ValidaCPF(value.ToString());
             return valido;
         }
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(

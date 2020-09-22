@@ -23,15 +23,10 @@ namespace WebApiCV.Migrations
                         .HasColumnName("Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("ComFirmaSenha")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnName("Cpf")
-                        .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
-                        .HasMaxLength(11);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("DataDeNacimente")
                         .IsRequired()

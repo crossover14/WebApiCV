@@ -20,7 +20,7 @@
     "WebApiCV": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/usuarios",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

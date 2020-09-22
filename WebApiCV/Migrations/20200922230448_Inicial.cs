@@ -16,8 +16,7 @@ namespace WebApiCV.Migrations
                     Nome = table.Column<string>(maxLength: 120, nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Senha = table.Column<string>(maxLength: 100, nullable: false),
-                    ComFirmaSenha = table.Column<string>(nullable: false),
-                    Cpf = table.Column<string>(maxLength: 11, nullable: false),
+                    Cpf = table.Column<string>(nullable: false),
                     DataDeNascimeto = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

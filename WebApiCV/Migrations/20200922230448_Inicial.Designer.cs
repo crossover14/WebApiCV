@@ -8,7 +8,7 @@ using WebApiCV.Contexto;
 namespace WebApiCV.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200921025809_Inicial")]
+    [Migration("20200922230448_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,15 +25,10 @@ namespace WebApiCV.Migrations
                         .HasColumnName("Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("ComFirmaSenha")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnName("Cpf")
-                        .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
-                        .HasMaxLength(11);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("DataDeNacimente")
                         .IsRequired()

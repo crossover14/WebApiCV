@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using WebApiCV.Validation;
+
 
 namespace WebApiCV.Model
 {
@@ -32,7 +36,9 @@ namespace WebApiCV.Model
         [Display(Name = "Senha")]
         public string Senha { get; set; }
 
+
         [Required(ErrorMessage = "Campo Obrigatorio")]
+        [NotMapped]
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar senha")]
         [Compare("Senha", ErrorMessage = "Senha e confirmação não são as mesmas.")]
@@ -40,8 +46,7 @@ namespace WebApiCV.Model
 
         [Required(ErrorMessage = "Campo Obrigatorio")]
         [Display(Name = "CPF")]
-        [MinLength(11, ErrorMessage = "CPF Invalido.")]
-        [MaxLength(11, ErrorMessage = "CPF Invalido.")]
+        [CustomValidationCPF(ErrorMessage = "Cpf Invalido")]
         [Column("Cpf")]
         public string Cpf { get; set; }
 

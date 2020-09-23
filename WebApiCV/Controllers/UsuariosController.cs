@@ -76,8 +76,28 @@ namespace WebApiCV.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
+            // _context.Usuarios.Add(usuario);
+            // await _context.SaveChangesAsync();
+            if (!_context.Usuarios.Any(e => e.Email == usuario.Email))
+            {
+                if (!_context.Usuarios.Any(e => e.Cpf == usuario.Cpf))
+                {
+                    _context.Usuarios.Add(usuario);
+                    await _context.SaveChangesAsync();
+                   
+                }
+                else
+                {
+                    return NotFound("Cpf Existente");
+                }
+            }
+            else
+            {
+                return NotFound("Email ja existente");
+            }
+           
+           
+           
 
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }

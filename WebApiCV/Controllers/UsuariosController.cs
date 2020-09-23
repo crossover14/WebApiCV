@@ -88,12 +88,12 @@ namespace WebApiCV.Controllers
                 }
                 else
                 {
-                    return NotFound("Cpf Existente");
+                    return NotFound("Cpf existente");
                 }
             }
             else
             {
-                return NotFound("Email ja existente");
+                return NotFound("Email existente");
             }
            
            

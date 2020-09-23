@@ -29,6 +29,7 @@ namespace WebApiCV
         {
             services.AddDbContext<AppDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefautConnection")));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddCors(options => options.AddPolicy("defaultcorspolicy", build => build.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

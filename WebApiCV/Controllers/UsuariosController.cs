@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using WebApiCV.Contexto;
 using WebApiCV.Model;
 
@@ -26,6 +29,28 @@ namespace WebApiCV.Controllers
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             return await _context.Usuarios.ToListAsync();
+        }
+
+        public string GereteToken()
+
+        {
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpva"));
+
+            var signInCred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+
+            var token = new JwtSecurityToken(
+
+                 expires: DateTime.Now.AddMinutes(1),
+
+                 signingCredentials: signInCred
+
+             );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return tokenString;
+
         }
 
         // GET: api/Usuarios/5
@@ -78,23 +103,23 @@ namespace WebApiCV.Controllers
         {
             // _context.Usuarios.Add(usuario);
             // await _context.SaveChangesAsync();
-            if (!_context.Usuarios.Any(e => e.Email == usuario.Email))
-            {
-                if (!_context.Usuarios.Any(e => e.Cpf == usuario.Cpf))
-                {
-                    _context.Usuarios.Add(usuario);
-                    await _context.SaveChangesAsync();
+            //if (!_context.Usuarios.Any(e => e.Email == usuario.Email))
+            //{
+            //    if (!_context.Usuarios.Any(e => e.Cpf == usuario.Cpf))
+            //    {
+            //        _context.Usuarios.Add(usuario);
+            //        await _context.SaveChangesAsync();
                    
-                }
-                else
-                {
-                    return NotFound("Cpf existente");
-                }
-            }
-            else
-            {
-                return NotFound("Email existente");
-            }
+            //    }
+            //    else
+            //    {
+            //        return NotFound("Cpf existente");
+            //    }
+            //}
+            //else
+            //{
+            //    return NotFound("Email existente");
+            //}
            
            
            

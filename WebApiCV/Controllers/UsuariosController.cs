@@ -31,6 +31,7 @@ namespace WebApiCV.Controllers
             return await _context.Usuarios.ToListAsync();
         }
 
+
         public string GereteToken()
 
         {

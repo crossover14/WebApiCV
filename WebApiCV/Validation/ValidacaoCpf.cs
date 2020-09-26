@@ -34,7 +34,7 @@ namespace WebApiCV.Validation
 
             if (igual || cpf == "12345678909")
                 return false;
-
+            
             int[] numeros = new int[11];
 
             for (int i = 0; i < 11; i++)
